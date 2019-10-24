@@ -1,0 +1,2 @@
+# Python-Password-Manager
+This Python 3 script can work as a password manager. It takes a master password and the script generates 640 characters secret key by using sha512 hashing of various combinations of the master password. Using various parts of this secret key and combining with original master password finally 32 characters are obtained which are then converted into Fernet Key and this Fernet Key encrypts the password and stores it in the sqlite3 database.
