@@ -37,8 +37,10 @@ def getsecretkey(master_pwd):
 
 def storepassword(secret_key, master_pwd):
     '''Stores  password by encrypting them using the fernet key which is generated as a combination of secret key and master password.'''
-    company= input('Enter company name (like Google, Facebook, Mail, etc..): ')
-    passkey=input('Enter password to store: ')
+    print('Enter company name (like Google, Facebook, Mail, etc..): ')
+    company=input()
+    print('Enter password to store: ')
+    passkey=input()
     passkey= passkey.encode()
     date= datetime.now()
     a,b,c,d=random.randint(64,576),random.randint(64,576),random.randint(64,576),random.randint(64,576)
@@ -171,9 +173,9 @@ def loop(secret_key, master_pwd):
     print('_'*20)
     print('SESSION CONTINUED:')
     print('_'*85)
-    print('1- store password')
-    print('2- retrieve password')
-    print('3- delete password')
+    print('1- store records')
+    print('2- retrieve passwords')
+    print('3- delete records')
     print('4- show database')
     print('5- exit')
     usr=input('-----------------> ')
