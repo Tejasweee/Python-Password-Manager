@@ -206,6 +206,9 @@ if __name__ == "__main__":
         master_pwd= sys.argv[1]
     else:
         master_pwd=input("Enter master passord: ")
-    secret_key=getsecretkey(master_pwd)
-    checkmasterpwd(secret_key, master_pwd)
-    loop(secret_key, master_pwd)
+    if len(master_pwd)>1:
+        secret_key=getsecretkey(master_pwd)
+        checkmasterpwd(secret_key, master_pwd)
+        loop(secret_key, master_pwd)
+    else:
+        print("Session can't be started without master password!...")
