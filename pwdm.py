@@ -108,6 +108,13 @@ def retordel(value, secret_key, master_pwd):
                 print('Successfully deleted ' + reqdpass + ' from the database')
                 print('')
 
+def showdatabase():
+    curr.execute("SELECT id, choosen,company,date,key FROM pwdb_table")
+    passwithid = curr.fetchall()
+    
+    for ids in passwithid:
+        print(str(ids[0])+', '+ str(ids[2]) +', '+ str(ids[3]) +', ' +str(ids[1]) +', '+ str(ids[4]))
+        print('_'*85)
 
 project_folder = 'PasswordManager'
 if not project_folder in os.listdir():
@@ -133,7 +140,8 @@ def loop(secret_key, master_pwd):
     print('1- store password')
     print('2- retrieve password')
     print('3- delete password')
-    print('4- exit')
+    print('4- show database')
+    print('5- exit')
     usr=input('-----------------> ')
     try:
         usr= int(usr)
@@ -142,6 +150,9 @@ def loop(secret_key, master_pwd):
             loop(secret_key, master_pwd)
         elif ((usr==2) or (usr==3)):
             retordel(usr,secret_key, master_pwd)
+            loop(secret_key, master_pwd)
+        elif usr==4:
+            showdatabase()
             loop(secret_key, master_pwd)
         else:
             with conn:
