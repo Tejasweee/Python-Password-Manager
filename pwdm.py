@@ -105,7 +105,7 @@ def retordel(value, secret_key, master_pwd):
             if value == 3:
                 with conn:
                     curr.execute("DELETE FROM pwdb_table WHERE id = :id", {'id': num})  
-                print('Successfully deleted ' + reqdpass + ' from the database')
+                print('Successfully deleted ' + 'ID ' +str(num)+ ' from the database')
                 print('')
 
 def showdatabase():
